@@ -1,0 +1,8 @@
+package com.example.sam;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configurationi
+public class ElasticsearchConfig {
+
+}

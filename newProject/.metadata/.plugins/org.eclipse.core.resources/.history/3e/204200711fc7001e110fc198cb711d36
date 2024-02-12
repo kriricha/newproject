@@ -1,0 +1,49 @@
+package com.example.sam;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName = "hyper",  type = "my_type")
+public class ModelElastic {
+	@Id
+	int id;
+	String usrname;
+	String loc;
+	public ModelElastic(int id, String usrname, String loc) {
+		super();
+		this.id = id;
+		this.usrname = usrname;
+		this.loc = loc;
+	}
+	public ModelElastic() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getUsrname() {
+		return usrname;
+	}
+	public void setUsrname(String usrname) {
+		this.usrname = usrname;
+	}
+	public String getLoc() {
+		return loc;
+	}
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
+	@Override
+	public String toString() {
+		return "ModelElastic [id=" + id + ", usrname=" + usrname + ", loc=" + loc + ", getId()=" + getId()
+				+ ", getUsrname()=" + getUsrname() + ", getLoc()=" + getLoc() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package com.example.sam;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ElasticsearchConfig {
+
+	@Value("${spring.data.elasticsearch.cluster-name}")
+	private String clusterNodes;
+	
+	
+}

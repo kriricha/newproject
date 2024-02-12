@@ -1,0 +1,6 @@
+package com.example.sam;
+
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+public interface xyz extends ElasticsearchRepository<ModelElastic, String> {
+}

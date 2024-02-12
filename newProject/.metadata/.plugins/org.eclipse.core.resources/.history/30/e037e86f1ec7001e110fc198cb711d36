@@ -1,0 +1,14 @@
+package com.example.sam;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@EnableElasticsearchRepositories
+@SpringBootApplication
+public class SamApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SamApplication.class, args);
+	}
+
+}

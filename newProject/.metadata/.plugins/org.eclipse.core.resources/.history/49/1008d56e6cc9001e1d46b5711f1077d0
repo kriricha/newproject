@@ -1,0 +1,59 @@
+package com.example.sam;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/user")
+public class usercontroller {
+	@Autowired
+	private Xyz elp;
+
+	@PostMapping("/signup")
+	public ModelElastic create(@RequestBody ModelElastic userRequest) {
+		return elp.save(userRequest);
+	}
+
+	@GetMapping("/fetch")
+	public Iterable<ModelElastic> findAll() {
+		return elp.findAll();
+
+	}
+
+	@GetMapping("/{id}")
+	public Optional<ModelElastic> findByid(@PathVariable int id) {
+		return elp.findById(id);
+
+	}
+
+	@PutMapping("/{id}")
+	public ModelElastic updateData(@PathVariable int id, @RequestBody ModelElastic userRequest) {
+		userRequest.setId(id);
+		return elp.save( userRequest);
+		
+
+	}
+
+	@DeleteMapping("/{id}")
+	public String DeleteData(@PathVariable int id) {
+		elp.deleteById(id);
+		return "data deleted";
+
+	}
+
+//	@DeleteMapping("/users")
+//	public String DeleteAllData() {
+//		elp.delete();
+//		return "All data deleted";
+//
+//	}
+}

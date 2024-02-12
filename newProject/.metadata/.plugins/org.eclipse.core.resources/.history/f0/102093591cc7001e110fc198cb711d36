@@ -1,0 +1,54 @@
+package com.example.sam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class service {
+@Autowired
+private xyz xyzm;
+	public ModelElastic saveuser(ModelElastic userRequest) {
+		return xyzm.save(userRequest);
+		
+	}
+
+	public Iterable<ModelElastic> getAlluser() {
+		
+		return xyzm.findAll();
+	}
+
+	public ModelElastic getuser(int id) {
+		ModelElastic user = xyzm.findById(id).get();
+		return user;
+	}
+
+	public Object updateData(int id, ModelElastic userRequest) {
+		ModelElastic data = xyzm.findById(id).get();
+
+		if (data != null) {
+			data.setUsrname(userRequest.getUsrname());
+			data.setId(userRequest.getId());
+			data.setLoc(userRequest.getLoc());
+			
+		}
+
+		return xyzm.save(data);
+		
+	}
+
+	public void deleteData(int id) {
+		xyzm.deleteById(id);
+		
+		
+	}
+
+	public void deleteAllData() {
+		xyzm.deleteAll();
+		
+		
+	}
+	
+
+}
